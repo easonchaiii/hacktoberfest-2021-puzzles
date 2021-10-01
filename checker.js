@@ -12,7 +12,7 @@ function validAnswer(parsed) {
 }
 
 function checkAnswer(answer) {
-  const parsed = answer.replace(/([\|\-\+\ \n])+/g, "");
+  const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   console.log(parsed);
   if (!validInput(parsed)) throw Error("Invalid Input");
   if (validAnswer(parsed)) console.log("✅ Solution Passed!");
