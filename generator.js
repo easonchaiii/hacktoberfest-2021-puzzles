@@ -10,6 +10,23 @@ try {
   data += parsed;
   data += "```\n";
   fs.writeFileSync("./README.md", data);
+
+  const solutionTemplate = `
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+------+-------+------
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+------+-------+------
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+. . . | . . . | . . . 
+`;
+  fs.writeFileSync("./solution.txt", solutionTemplate);
+  console.log("✅ Puzzle Reset!");
 } catch (err) {
   console.error(err);
+  console.error("❌ Something went wrong!");
 }
