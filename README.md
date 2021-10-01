@@ -7,18 +7,19 @@ This repo is targeted for Hacktoberfest participants. It has an automatic Sudoku
 ## 📝 Rules
 
 All you need to do is modify the `solution.txt` file with the correct answer and make a pull request!
+Note: Remember to keep the format exactly the same!
 
 ## ❓ Puzzle
 ```
-. . . |5 . 6 |1 . . 
-. . . |. . . |. 4 . 
-. . 3 |. . 1 |7 . 6 
+. 1 . | . . . | . . . 
+. . 7 | 2 . 4 | . . . 
+3 . . | . 5 . | 6 . . 
 ------+-------+------
-. . . |8 5 . |. . . 
-8 5 6 |. . . |. . . 
-. . 1 |3 . . |. . . 
+. 5 . | 6 4 . | 1 . 2 
+1 . . | . . . | . . . 
+. . . | . 2 7 | 3 . . 
 ------+-------+------
-. 4 . |. . . |6 . . 
-. . . |. . . |. 1 . 
-. . 7 |1 8 . |3 . . 
+. . . | . 3 . | . . . 
+. 6 . | . . . | . . 8 
+. . 1 | 7 . . | . 2 . 
 ```
