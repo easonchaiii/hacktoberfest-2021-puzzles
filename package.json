@@ -1,0 +1,23 @@
+{
+  "name": "hacktoberfest-2021-puzzles",
+  "version": "1.0.0",
+  "description": "Hacktoberfest 2021 repo with puzzles. Make a PR to test your solution!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easonchai/hacktoberfest-2021-puzzles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easonchai/hacktoberfest-2021-puzzles/issues"
+  },
+  "homepage": "https://github.com/easonchai/hacktoberfest-2021-puzzles#readme",
+  "dependencies": {
+    "sudoku": "^0.0.3"
+  }
+}
