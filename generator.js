@@ -1,5 +1,6 @@
 const sudoku = require("sudoku");
 const helpers = require("./utils/helpers");
+const core = require("@actions/core");
 const fs = require("fs");
 
 try {
@@ -28,5 +29,5 @@ try {
   console.log("✅ Puzzle Reset!");
 } catch (err) {
   console.error(err);
-  console.error("❌ Something went wrong!");
+  core.error("❌ Something went wrong!");
 }

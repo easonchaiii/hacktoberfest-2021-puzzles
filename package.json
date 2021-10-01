@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/easonchai/hacktoberfest-2021-puzzles#readme",
   "dependencies": {
+    "@actions/core": "^1.6.0",
     "sudoku": "^0.0.3"
   }
 }

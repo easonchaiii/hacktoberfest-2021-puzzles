@@ -14,7 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check answer
-        run: npm run check
+        run: |
+          npm i
+          npm run check
   reset_questions:
     name: Reset Questions
     runs-on: ubuntu-latest

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const core = require("@actions/core");
 
 function validInput(parsed) {
   if (parsed.length != 81) return false;
@@ -16,10 +17,7 @@ function checkAnswer(answer) {
   console.log(parsed);
   if (!validInput(parsed)) throw Error("Invalid Input");
   if (validAnswer(parsed)) console.log("✅ Solution Passed!");
-  else {
-    console.error("❌ Solution Failed!");
-    throw Error("Incorrect solution");
-  }
+  else core.error("❌ Solution Failed!");
 }
 
 function readFile() {
@@ -27,7 +25,7 @@ function readFile() {
     const answer = fs.readFileSync("./solution.txt", "utf8");
     checkAnswer(answer);
   } catch (err) {
-    console.error(err);
+    core.error(err);
   }
 }
 
