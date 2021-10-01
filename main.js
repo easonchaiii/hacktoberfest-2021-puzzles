@@ -3,11 +3,13 @@ const helpers = require("./utils/helpers");
 const fs = require("fs");
 
 try {
-  const data = fs.readFileSync("./README_TEMPLATE.md", "utf8");
-  //   console.log(data);
+  const puzzle = sudoku.makepuzzle();
+  const parsed = helpers.prettify(puzzle);
+  let data = fs.readFileSync("./README_TEMPLATE.md", "utf8");
+  data += "```\n";
+  data += parsed;
+  data += "```\n";
+  fs.writeFileSync("./README.md", data);
 } catch (err) {
   console.error(err);
 }
-
-const puzzle = sudoku.makepuzzle();
-helpers.prettify(puzzle);
