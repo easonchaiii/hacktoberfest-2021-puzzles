@@ -41,3 +41,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+      - name: Add label
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "hacktoberfest-accepted"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
