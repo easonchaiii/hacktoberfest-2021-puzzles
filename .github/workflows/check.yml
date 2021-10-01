@@ -24,8 +24,6 @@ jobs:
         run: npm run reset
       - name: Commit
         run: |
-        git config --local user.email "echai2905@gmail.com"
-        git config --local user.name "Eason Chai"
         git commit -am "Reset puzzle"
       - name: Push changes
         uses: ad-m/github-push-action@master
