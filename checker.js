@@ -56,6 +56,7 @@ function validAnswer(parsed) {
 function checkAnswer(answer, puzzle) {
   const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
+  console.log(p_puzzle);
   if (!validInput(parsed, p_puzzle)) {
     core.error("Invalid Input");
     core.setFailed("Invalid Input");
@@ -71,7 +72,7 @@ function readFile() {
   try {
     const answer = fs.readFileSync("./solution.txt", "utf8");
     var puzzle = fs.readFileSync("./README.md", "utf8");
-    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 3);
+    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 4);
     checkAnswer(answer, puzzle);
   } catch (err) {
     core.error(err);
