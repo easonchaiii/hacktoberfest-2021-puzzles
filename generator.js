@@ -13,7 +13,7 @@ try {
   fs.writeFileSync("./README.md", data);
 
   const solutionTemplate = `
-${puzzle}
+${parsed}
 `;
   fs.writeFileSync("./solution.txt", solutionTemplate);
   console.log("✅ Puzzle Reset!");
