@@ -13,17 +13,7 @@ try {
   fs.writeFileSync("./README.md", data);
 
   const solutionTemplate = `
-. . . | . . . | . . . 
-. . . | . . . | . . . 
-. . . | . . . | . . . 
-------+-------+------
-. . . | . . . | . . . 
-. . . | . . . | . . . 
-. . . | . . . | . . . 
-------+-------+------
-. . . | . . . | . . . 
-. . . | . . . | . . . 
-. . . | . . . | . . . 
+${puzzle}
 `;
   fs.writeFileSync("./solution.txt", solutionTemplate);
   console.log("✅ Puzzle Reset!");

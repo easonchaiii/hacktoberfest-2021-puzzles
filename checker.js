@@ -71,7 +71,7 @@ function readFile() {
   try {
     const answer = fs.readFileSync("./solution.txt", "utf8");
     var puzzle = fs.readFileSync("./README.md", "utf8");
-    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 3);
+    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 4);
     checkAnswer(answer, puzzle);
   } catch (err) {
     core.error(err);
