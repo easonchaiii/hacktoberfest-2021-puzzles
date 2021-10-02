@@ -2,6 +2,7 @@ name: Check answer & reset if correct
 
 on:
   pull_request:
+    types: [opened]
     paths-ignore:
       - "README.md"
 
@@ -35,6 +36,8 @@ jobs:
         with:
           add-labels: "hacktoberfest-accepted"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ignore-if-assigned: false
+          ignore-if-labeled: true
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
