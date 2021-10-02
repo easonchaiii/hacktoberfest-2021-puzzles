@@ -11,11 +11,7 @@ try {
   data += parsed;
   data += "```\n";
   fs.writeFileSync("./README.md", data);
-
-  const solutionTemplate = `
-${parsed}
-`;
-  fs.writeFileSync("./solution.txt", solutionTemplate);
+  fs.writeFileSync("./solution.txt", parsed);
   console.log("✅ Puzzle Reset!");
 } catch (err) {
   console.error(err);
