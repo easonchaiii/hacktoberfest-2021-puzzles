@@ -69,8 +69,8 @@ function checkAnswer(answer, puzzle) {
 function readFile() {
   try {
     const answer = fs.readFileSync("./solution.txt", "utf8");
-    let puzzle = fs.readFileSync("./README.md", "utf8");
-    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 5);
+    const readme = fs.readFileSync("./README.md", "utf8");
+    const puzzle = readme.slice(readme.length - 269, readme.length - 5);
     checkAnswer(answer, puzzle);
   } catch (err) {
     core.error(err);
