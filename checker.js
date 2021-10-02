@@ -1,15 +1,16 @@
 const fs = require("fs");
+const core = require("@actions/core");
 
 function validInput(parsed, p_puzzle) {
   if (parsed.length != 81) return false;
   if (parsed.replace(/([0-9])+/g, "")) return false;
   // Check the map match original map (so you cant just put your own map)
-  console.log(parsed);
-  console.log(p_puzzle);
+  core.log(parsed);
+  core.log(p_puzzle);
   for (var i = 0; i < p_puzzle.length; i++) {
     if (!isNaN(p_puzzle[i])) {
       if (parsed[i] !== p_puzzle[i]) {
-        console.log(parsed[i], p_puzzle[i], i);
+        core.log(parsed[i], p_puzzle[i], i);
         return false;
       }
     }
@@ -17,7 +18,7 @@ function validInput(parsed, p_puzzle) {
   return true;
 }
 
-function validAnswer(parsed, p_puzzle) {
+function validAnswer(parsed) {
   // Check proper sudoku ans
   //check row
   for (var i = 0; i < 9; i++) {
@@ -52,9 +53,9 @@ function checkAnswer(answer, puzzle) {
   const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
   if (!validInput(parsed, p_puzzle)) throw Error("Invalid Input");
-  if (validAnswer(parsed)) console.log("✅ Solution Passed!");
+  if (validAnswer(parsed)) core.log("✅ Solution Passed!");
   else {
-    console.error("❌ Solution Failed!");
+    core.error("❌ Solution Failed!");
     throw Error("Incorrect solution");
   }
 }
@@ -66,7 +67,7 @@ function readFile() {
     puzzle = puzzle.slice(puzzle.length -256, puzzle.length -3);
     checkAnswer(answer, puzzle);
   } catch (err) {
-    console.error(err);
+    core.error(err);
   }
 }
 
