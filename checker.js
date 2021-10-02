@@ -58,6 +58,7 @@ function checkAnswer(answer, puzzle) {
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
   if (!validInput(parsed, p_puzzle)) {
     core.setFailed("Invalid Input");
+    return;
   }
   if (validAnswer(parsed)) console.log("✅ Solution Passed!");
   else {
@@ -70,7 +71,8 @@ function readFile() {
   try {
     const answer = fs.readFileSync("./solution.txt", "utf8");
     const readme = fs.readFileSync("./README.md", "utf8");
-    const puzzle = readme.slice(readme.length - 269, readme.length - 5);
+    const index = readme.indexOf("```");
+    const puzzle = readme.slice(index + 3, index.length);
     checkAnswer(answer, puzzle);
   } catch (err) {
     core.error(err);
