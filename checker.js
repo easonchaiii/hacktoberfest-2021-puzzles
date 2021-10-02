@@ -20,41 +20,50 @@ function validAnswer(parsed) {
   // Check proper sudoku ans
   //check row
   for (var i = 0; i < 9; i++) {
-    var arr = [...parsed.substring(i * 9, (i * 9) + 9)];
+    var arr = [...parsed.substring(i * 9, i * 9 + 9)];
     var check = arr.filter((item, index) => arr.indexOf(item) != index);
-    if (check.length !== 0) {return false}
+    if (check.length !== 0) {
+      return false;
+    }
   }
 
   //check column
   for (var i = 0; i < 9; i++) {
     var arr = [];
     for (var j = 0; j < 9; j++) {
-      arr.push(parsed[(j * 9) + i]);
+      arr.push(parsed[j * 9 + i]);
     }
     var check = arr.filter((item, index) => arr.indexOf(item) != index);
-    if (check.length !== 0) {return false}
+    if (check.length !== 0) {
+      return false;
+    }
   }
 
   //check box
   [0, 3, 6, 27, 30, 33, 54, 57, 60].forEach((item) => {
     var arr = [];
-    for (var i = item; i < (item + 3); i++) {
+    for (var i = item; i < item + 3; i++) {
       arr.push(parsed[i], parsed[i + 9], parsed[i + 18]);
     }
     var check = arr.filter((item, index) => arr.indexOf(item) != index);
-    if (check.length !== 0) {return false}
-  })
+    if (check.length !== 0) {
+      return false;
+    }
+  });
   return true;
 }
 
 function checkAnswer(answer, puzzle) {
   const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
-  if (!validInput(parsed, p_puzzle)) throw Error("Invalid Input");
+  if (!validInput(parsed, p_puzzle)) {
+    core.error("Invalid Input");
+    core.setFailed("Invalid Input");
+  }
   if (validAnswer(parsed)) console.log("✅ Solution Passed!");
   else {
     core.error("❌ Solution Failed!");
-    throw Error("Incorrect solution");
+    core.setFailed("Incorrect Solution");
   }
 }
 
@@ -62,10 +71,11 @@ function readFile() {
   try {
     const answer = fs.readFileSync("./solution.txt", "utf8");
     var puzzle = fs.readFileSync("./README.md", "utf8");
-    puzzle = puzzle.slice(puzzle.length -256, puzzle.length -3);
+    puzzle = puzzle.slice(puzzle.length - 256, puzzle.length - 3);
     checkAnswer(answer, puzzle);
   } catch (err) {
     core.error(err);
+    core.setFailed();
   }
 }
 
