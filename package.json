@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "node checker.js",
-    "reset": "node generate.js"
+    "reset": "node generator.js"
   },
   "repository": {
     "type": "git",

@@ -13,9 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check answer
-        run: |
-          npm i
-          npm run check
+        run: npm i && npm run check
   reset_questions:
     name: Reset Questions
     runs-on: ubuntu-latest
@@ -26,9 +24,7 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0
       - name: Reset
-        run: |
-          npm i
-          npm run reset
+        run: npm i && npm run reset
       - name: Commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
