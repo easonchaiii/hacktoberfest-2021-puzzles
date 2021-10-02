@@ -5,12 +5,10 @@ function validInput(parsed, p_puzzle) {
   if (parsed.length != 81) return false;
   if (parsed.replace(/([0-9])+/g, "")) return false;
   // Check the map match original map (so you cant just put your own map)
-  core.log(parsed);
-  core.log(p_puzzle);
   for (var i = 0; i < p_puzzle.length; i++) {
     if (!isNaN(p_puzzle[i])) {
       if (parsed[i] !== p_puzzle[i]) {
-        core.log(parsed[i], p_puzzle[i], i);
+        console.log("Solution does not match puzzle");
         return false;
       }
     }
@@ -53,7 +51,7 @@ function checkAnswer(answer, puzzle) {
   const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
   if (!validInput(parsed, p_puzzle)) throw Error("Invalid Input");
-  if (validAnswer(parsed)) core.log("✅ Solution Passed!");
+  if (validAnswer(parsed)) console.log("✅ Solution Passed!");
   else {
     core.error("❌ Solution Failed!");
     throw Error("Incorrect solution");
