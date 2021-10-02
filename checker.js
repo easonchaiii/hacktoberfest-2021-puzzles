@@ -56,6 +56,7 @@ function validAnswer(parsed) {
 function checkAnswer(answer, puzzle) {
   const parsed = answer.replace(/([\|\-\+\s])+/g, "");
   const p_puzzle = puzzle.replace(/([\|\-\+\s])+/g, "");
+  console.log(p_puzzle);
   if (!validInput(parsed, p_puzzle)) {
     core.error("Invalid Input");
     core.setFailed("Invalid Input");
